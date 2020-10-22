@@ -16,10 +16,10 @@ namespace LinkedListDemo
             //list.Display();
 
             //Adding new element to tail FIFO
-            list.AddToTail(56);
-            list.AddToTail(30);
-            list.AddToTail(70);
-            list.Display();
+            //list.AddToTail(56);
+            //list.AddToTail(30);
+            //list.AddToTail(70);
+            //list.Display();
 
             //Inserting number at specific position
             //list.AddToTail(56);
@@ -36,15 +36,26 @@ namespace LinkedListDemo
             //list.Display();
 
             //Inserting element after a value
-            list.InsertAfterValue(30, 40);
-            list.Display();
+            //list.InsertAfterValue(30, 40);
+            //list.Display();
 
             //Deleting node with a value
-            list.DeleteWithValue(40);
-            list.Display();
+            //list.DeleteWithValue(40);
+            //list.Display();
 
             //Displaying Size of List
-            Console.WriteLine("Size of list: " + list.SizeOfList());
+            //Console.WriteLine("Size of list: " + list.SizeOfList());
+
+            //Add with sorting
+            list.AddWithSorting(6);
+            list.AddWithSorting(2);
+            list.AddWithSorting(8);
+            list.AddWithSorting(3);
+            list.AddWithSorting(7);
+            list.AddWithSorting(9);
+            list.AddWithSorting(5);
+            list.Display();
+
         }
     }
 }

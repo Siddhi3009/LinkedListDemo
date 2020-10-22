@@ -6,10 +6,10 @@ namespace LinkedListDemo
 {
     public class LinkedList
     {
-        public Node head;
+        public Node<int> head;
         public void AddToHead(int data)
         {
-            Node node = new Node(data);
+            Node<int> node = new Node<int>(data);
             if (this.head == null)
                 node.next = null;
             else
@@ -20,12 +20,12 @@ namespace LinkedListDemo
 
         public void AddToTail(int data)
         {
-            Node node = new Node(data);
+            Node<int> node = new Node<int>(data);
             if (this.head == null)
                 this.head = node;
             else
             {
-                Node temp = head;
+                Node<int> temp = head;
                 while (temp.next != null)
                 {
                     temp = temp.next;
@@ -34,25 +34,25 @@ namespace LinkedListDemo
             }
             Console.WriteLine("{0} is inserted into the linked list", node.data);
         }
-        public Node InsertAtParticularPosition(int position, int data)
+        public Node<int> InsertAtParticularPosition(int position, int data)
         {
             if (position < 1)
                 Console.WriteLine("Invalid position");
             if (position == 1)
             {
-                var newNode = new Node(data);
+                var newNode = new Node<int>(data);
                 newNode.next = this.head;
                 head = newNode;
                 Console.WriteLine("{0} is inserted at position {1}", data, position);
             }
             else
             {
-                Node temp = this.head;
+                Node<int> temp = this.head;
                 while (position-- != 0)
                 {
                     if (position == 1)
                     {
-                        Node node = new Node(data);
+                        Node<int> node = new Node<int>(data);
                         node.next = temp.next;
                         temp.next = node;
                         break;
@@ -64,7 +64,7 @@ namespace LinkedListDemo
             }
             return head;
         }
-        public Node DeleteFisrtElement()
+        public Node<int> DeleteFisrtElement()
         {
             if (this.head == null)
             {
@@ -78,9 +78,9 @@ namespace LinkedListDemo
                 return head;
             }
         }
-        public Node DeleteLastElement()
+        public Node<int> DeleteLastElement()
         {
-            Node temp = this.head;
+            Node<int> temp = this.head;
             if (temp == null)
             {
                 Console.WriteLine("List is empty");
@@ -99,7 +99,7 @@ namespace LinkedListDemo
         }
         public void Display()
         {
-            Node temp = this.head;
+            Node<int> temp = this.head;
             if (temp == null)
             {
                 Console.WriteLine("Linked List is empty");
@@ -112,9 +112,9 @@ namespace LinkedListDemo
             }
             Console.WriteLine("\n ______________________________________________________________________");
         }
-        public Node Search(int value)
+        public Node<int> Search(int value)
         {
-            Node temp = this.head;
+            Node<int> temp = this.head;
             while (temp != null)
             {
                 if (temp.data == value)
@@ -127,16 +127,16 @@ namespace LinkedListDemo
         }
         public void InsertAfterValue(int existingValue, int valueToBeInserted)
         {
-            Node temp = Search(existingValue);
-            Node node = new Node(valueToBeInserted);
+            Node<int> temp = Search(existingValue);
+            Node<int> node = new Node<int>(valueToBeInserted);
             node.next = temp.next;
             temp.next = node;
             return;
         }
         public void DeleteWithValue(int data)
         {
-            Node delete = Search(data);
-            Node temp = this.head;
+            Node<int> delete = Search(data);
+            Node<int> temp = this.head;
             if (delete == null)
             {
                 Console.WriteLine("Value doesn't exist in the list");
@@ -156,7 +156,7 @@ namespace LinkedListDemo
         public int SizeOfList()
         {
             int size = 1;
-            Node temp = this.head;
+            Node<int> temp = this.head;
             if (temp == null)
             {
                 Console.WriteLine("List is empty");
@@ -167,6 +167,30 @@ namespace LinkedListDemo
                 temp = temp.next;
             }
             return size;
+        }
+        public void AddWithSorting(int data)
+        {
+            Node<int> node = new Node<int>(data);
+            if (this.head == null)
+                this.head = node;
+            else
+            {
+                if (this.head.data > data)
+                {
+                    node.next = this.head;
+                    this.head = node;
+                }
+                else
+                {
+                    Node<int> temp = this.head;
+                    while (temp.next != null && temp.next.data < data)
+                    {
+                        temp = temp.next;
+                    }
+                    node.next = temp.next;
+                    temp.next = node;
+                }
+            }
         }
     }
 }
