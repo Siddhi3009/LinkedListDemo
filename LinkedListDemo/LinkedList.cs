@@ -125,5 +125,13 @@ namespace LinkedListDemo
             }
             return null;
         }
+        public void InsertAfterValue(int existingValue, int valueToBeInserted)
+        {
+            Node temp = Search(existingValue);
+            Node node = new Node(valueToBeInserted);
+            node.next = temp.next;
+            temp.next = node;
+            return;
+        }
     }
 }
