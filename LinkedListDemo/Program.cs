@@ -32,7 +32,15 @@ namespace LinkedListDemo
             //list.Display();
 
             //Deleting Last Element
-            list.DeleteLastElement();
+            //list.DeleteLastElement();
+            //list.Display();
+
+            //Inserting element after a value
+            list.InsertAfterValue(30, 40);
+            list.Display();
+
+            //Deleting node with a value
+            list.DeleteWithValue(40);
             list.Display();
         }
     }

@@ -133,5 +133,25 @@ namespace LinkedListDemo
             temp.next = node;
             return;
         }
+        public void DeleteWithValue(int data)
+        {
+            Node delete = Search(data);
+            Node temp = this.head;
+            if (delete == null)
+            {
+                Console.WriteLine("Value doesn't exist in the list");
+                return;
+            }
+            else
+            {
+                while (temp.next != delete)
+                {
+                    temp = temp.next;
+                }
+                temp.next = delete.next;
+                Console.WriteLine(data + " deleted successfully");
+                return;
+            }
+        }
     }
 }
