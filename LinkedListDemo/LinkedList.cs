@@ -7,7 +7,7 @@ namespace LinkedListDemo
     class LinkedList
     {
         public Node head;
-        internal void AddToHead(int data)
+        public void AddToHead(int data)
         {
             Node node = new Node(data);
             if (this.head == null)
@@ -17,6 +17,24 @@ namespace LinkedListDemo
             this.head = node;
             Console.WriteLine("{0} is inserted at the head ", node.data);
         }
+
+        public void AddToTail(int data)
+        {
+            Node node = new Node(data);
+            if (this.head == null)
+                this.head = node;
+            else
+            {
+                Node temp = head;
+                while (temp.next != null)
+                {
+                    temp = temp.next;
+                }
+                temp.next = node;
+            }
+            Console.WriteLine("{0} is inserted into the linked list", node.data);
+        }
+
         public void Display()
         {
             Node temp = this.head;
