@@ -28,7 +28,11 @@ namespace LinkedListDemo
             //list.Display();
 
             //Deleting Fisrt Element
-            list.DeleteFisrtElement();
+            //list.DeleteFisrtElement();
+            //list.Display();
+
+            //Deleting Last Element
+            list.DeleteLastElement();
             list.Display();
         }
     }
