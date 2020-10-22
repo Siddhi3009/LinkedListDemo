@@ -42,6 +42,9 @@ namespace LinkedListDemo
             //Deleting node with a value
             list.DeleteWithValue(40);
             list.Display();
+
+            //Displaying Size of List
+            Console.WriteLine("Size of list: " + list.SizeOfList());
         }
     }
 }

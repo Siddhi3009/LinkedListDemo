@@ -153,5 +153,20 @@ namespace LinkedListDemo
                 return;
             }
         }
+        public int SizeOfList()
+        {
+            int size = 1;
+            Node temp = this.head;
+            if (temp == null)
+            {
+                Console.WriteLine("List is empty");
+            }
+            while (temp.next != null)
+            {
+                size++;
+                temp = temp.next;
+            }
+            return size;
+        }
     }
 }
