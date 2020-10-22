@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LinkedListDemo
 {
-    class LinkedList
+    public class LinkedList
     {
         public Node head;
         public void AddToHead(int data)
@@ -34,7 +34,7 @@ namespace LinkedListDemo
             }
             Console.WriteLine("{0} is inserted into the linked list", node.data);
         }
-        public void InsertAtParticularPosition(int position, int data)
+        public Node InsertAtParticularPosition(int position, int data)
         {
             if (position < 1)
                 Console.WriteLine("Invalid position");
@@ -62,23 +62,30 @@ namespace LinkedListDemo
                 if (position != 1)
                     Console.WriteLine("Position out of range");
             }
+            return head;
         }
-        public void DeleteFisrtElement()
+        public Node DeleteFisrtElement()
         {
             if (this.head == null)
+            {
                 Console.WriteLine("List is empty");
+                return null;
+            }
             else
             {
                 Console.WriteLine("Value removed from head is {0} ", this.head.data);
                 this.head = this.head.next;
-                return;
+                return head;
             }
         }
-        public void DeleteLastElement()
+        public Node DeleteLastElement()
         {
             Node temp = this.head;
             if (temp == null)
+            {
                 Console.WriteLine("List is empty");
+                return null;
+            }
             else
             {
                 while (temp.next.next != null)
@@ -87,7 +94,7 @@ namespace LinkedListDemo
                 }
                 Console.WriteLine("Value removed from tail is {0} ", temp.next.data);
                 temp.next = null;
-                return;
+                return head;
             }
         }
         public void Display()
@@ -104,6 +111,19 @@ namespace LinkedListDemo
                 temp = temp.next;
             }
             Console.WriteLine("\n ______________________________________________________________________");
+        }
+        public Node Search(int value)
+        {
+            Node temp = this.head;
+            while (temp != null)
+            {
+                if (temp.data == value)
+                {
+                    return temp;
+                }
+                temp = temp.next;
+            }
+            return null;
         }
     }
 }
